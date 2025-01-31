@@ -1,0 +1,1727 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1515</width>
+    <height>792</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+    <horstretch>5</horstretch>
+    <verstretch>5</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">window.setStyleSheet(rgb(74, 74, 74))</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QStackedWidget" name="stackedWidget">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>10</y>
+      <width>1081</width>
+      <height>751</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>2</number>
+    </property>
+    <widget class="QWidget" name="page_3">
+     <widget class="QWidget" name="layoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>330</x>
+        <y>220</y>
+        <width>501</width>
+        <height>241</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QLabel" name="newLabel">
+         <property name="minimumSize">
+          <size>
+           <width>70</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="tabletTracking">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(0, 0, 0);
+
+font: 700 11pt &quot;Calibri&quot;;
+</string>
+         </property>
+         <property name="text">
+          <string>Введите ваш список. Разделение элементов производится через пробел!</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTextEdit" name="inputLine">
+         <property name="minimumSize">
+          <size>
+           <width>70</width>
+           <height>10</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>11</pointsize>
+           <italic>false</italic>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::LayoutDirection::LeftToRight</enum>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">border-color: rgb(81, 81, 81);
+color: rgb(0, 0, 0);
+
+font: 700 11pt &quot;Calibri&quot;;</string>
+         </property>
+         <property name="lineWidth">
+          <number>4</number>
+         </property>
+         <property name="midLineWidth">
+          <number>1</number>
+         </property>
+         <property name="verticalScrollBarPolicy">
+          <enum>Qt::ScrollBarPolicy::ScrollBarAsNeeded</enum>
+         </property>
+         <property name="horizontalScrollBarPolicy">
+          <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOn</enum>
+         </property>
+         <property name="lineWrapMode">
+          <enum>QTextEdit::LineWrapMode::NoWrap</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="errorLabel2">
+         <property name="minimumSize">
+          <size>
+           <width>70</width>
+           <height>10</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>1400</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: 700 10pt &quot;Calibri&quot;;
+color: rgb(255, 0, 0);</string>
+         </property>
+         <property name="text">
+          <string>Вы ничего не ввели!</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QPushButton" name="toLobby">
+           <property name="styleSheet">
+            <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(0, 0, 0);
+color: rgb(255, 255, 255);
+font: 700 11pt &quot;Calibri&quot;;</string>
+           </property>
+           <property name="text">
+            <string>В меню</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Orientation::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="confirmInput">
+           <property name="styleSheet">
+            <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(0, 0, 0);
+color: rgb(255, 255, 255);
+font: 700 12pt &quot;Calibri&quot;;</string>
+           </property>
+           <property name="text">
+            <string>Подтвердить ввод</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QLabel" name="sortLabel">
+         <property name="minimumSize">
+          <size>
+           <width>70</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>35</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(0, 0, 0);
+font: 700 11pt &quot;Calibri&quot;;</string>
+         </property>
+         <property name="text">
+          <string>Отсортированный список</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTextEdit" name="sortTextEdit">
+         <property name="minimumSize">
+          <size>
+           <width>70</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>11</pointsize>
+           <italic>false</italic>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(0, 0, 0);
+border-color: rgb(81, 81, 81);
+font: 700 11pt &quot;Calibri&quot;;</string>
+         </property>
+         <property name="verticalScrollBarPolicy">
+          <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+         </property>
+         <property name="lineWrapMode">
+          <enum>QTextEdit::LineWrapMode::NoWrap</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QLabel" name="saveLabel">
+           <property name="styleSheet">
+            <string notr="true">color: rgb(0, 0, 0);
+
+font: 700 11pt &quot;Calibri&quot;;
+</string>
+           </property>
+           <property name="text">
+            <string>Сохранение прошло успешно!</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_3">
+           <property name="orientation">
+            <enum>Qt::Orientation::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="saveButton">
+           <property name="minimumSize">
+            <size>
+             <width>105</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(0, 0, 0);
+color: rgb(255, 255, 255);
+font: 700 12pt &quot;Calibri&quot;;</string>
+           </property>
+           <property name="text">
+            <string>Сохранить </string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_4">
+     <widget class="QWidget" name="layoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>90</y>
+        <width>931</width>
+        <height>467</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <item>
+          <widget class="QLabel" name="arrayLabel">
+           <property name="styleSheet">
+            <string notr="true">color: rgb(0, 0, 0);
+
+font: 700 13pt &quot;Calibri&quot;;</string>
+           </property>
+           <property name="text">
+            <string>Мои списки</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QTextEdit" name="arrayBox">
+           <property name="minimumSize">
+            <size>
+             <width>500</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border-color: rgb(81, 81, 81);
+color: rgb(0, 0, 0);
+
+font: 700 11pt &quot;Calibri&quot;;</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_6">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_5">
+           <item>
+            <widget class="QPushButton" name="changeButton">
+             <property name="minimumSize">
+              <size>
+               <width>200</width>
+               <height>50</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">font: 10pt &quot;Franklin Gothic Demi&quot;;
+background-color: rgb(0, 0, 0);
+color: rgb(255, 255, 255);
+border-color: rgb(255, 255, 255);</string>
+             </property>
+             <property name="text">
+              <string>Изменить содержимое списка ... </string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_3">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_4">
+             <item>
+              <widget class="QLabel" name="numberLabel">
+               <property name="styleSheet">
+                <string notr="true">color: rgb(0, 0, 0);
+
+font: 700 13pt &quot;Calibri&quot;;</string>
+               </property>
+               <property name="text">
+                <string>Введите номер изменяемого списка</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="numberLine">
+               <property name="styleSheet">
+                <string notr="true">color: rgb(0, 0, 0);
+border-color: rgb(81, 81, 81);
+
+font: 700 11pt &quot;Calibri&quot;;</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QPushButton" name="numberButton">
+           <property name="styleSheet">
+            <string notr="true">font: 10pt &quot;Franklin Gothic Demi&quot;;
+background-color: rgb(0, 0, 0);
+color: rgb(255, 255, 255);
+border-color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string>Подтвердить</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_4">
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QLabel" name="changeLabel">
+           <property name="styleSheet">
+            <string notr="true">color: rgb(0, 0, 0);
+
+font: 700 13pt &quot;Calibri&quot;;</string>
+           </property>
+           <property name="text">
+            <string>Внесите изменения</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QTextEdit" name="changeEdit">
+           <property name="minimumSize">
+            <size>
+             <width>380</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(0, 0, 0);
+
+font: 700 11pt &quot;Calibri&quot;;
+border-color: rgb(81, 81, 81);</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="changeAccButton">
+           <property name="styleSheet">
+            <string notr="true">font: 10pt &quot;Franklin Gothic Demi&quot;;
+background-color: rgb(0, 0, 0);
+color: rgb(255, 255, 255);
+border-color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string>Внести правки</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="outputLabel">
+           <property name="styleSheet">
+            <string notr="true">font: 700 13pt &quot;Calibri&quot;;
+color: rgb(0, 170, 0);</string>
+           </property>
+           <property name="text">
+            <string>Правки успешно внесены!</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QTextEdit" name="textEdit22">
+           <property name="styleSheet">
+            <string notr="true">color: rgb(0, 0, 0);
+
+font: 700 11pt &quot;Calibri&quot;;
+border-color: rgb(81, 81, 81);</string>
+           </property>
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_2">
+     <widget class="QPushButton" name="backButton">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>580</y>
+        <width>211</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 10pt &quot;Franklin Gothic Demi&quot;;
+background-color: rgb(0, 0, 0);
+border-top-color: rgb(255, 255, 255);
+alternate-background-color: rgb(255, 255, 255);
+color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>Вернуться к тестам</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>90</y>
+        <width>721</width>
+        <height>481</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_21">
+       <item>
+        <widget class="QLabel" name="testLabel">
+         <property name="styleSheet">
+          <string notr="true">color: rgb(0, 0, 0);
+
+font: 700 13pt &quot;Calibri&quot;;</string>
+         </property>
+         <property name="text">
+          <string>Тестовые данные</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QTextEdit" name="testDataEdit">
+         <property name="styleSheet">
+          <string notr="true">border-color: rgb(81, 81, 81);
+color: rgb(0, 0, 0);
+
+font: 700 11pt &quot;Calibri&quot;;</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page">
+     <widget class="QWidget" name="layoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>60</y>
+        <width>697</width>
+        <height>418</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_34">
+       <item>
+        <widget class="QPushButton" name="testStartButton">
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(0, 0, 0);
+color: rgb(255, 255, 255);
+
+font: 700 11pt &quot;Calibri&quot;;</string>
+         </property>
+         <property name="text">
+          <string>Запустить тесты сортировки</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_10">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_13">
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_4">
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_7">
+               <item>
+                <widget class="QLabel" name="label">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>35</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">color: rgb(0, 0, 0);
+
+font: 700 11pt &quot;Calibri&quot;;
+border-color: rgb(81, 81, 81);</string>
+                 </property>
+                 <property name="text">
+                  <string>Сортировка 100 списков</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QProgressBar" name="progressBar">
+                 <property name="minimumSize">
+                  <size>
+                   <width>150</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">gridline-color: rgb(0, 255, 0);
+selection-background-color: rgb(0, 170, 0);
+selection-color: rgb(98, 98, 98);
+border-color: rgb(0, 0, 0);
+color: rgb(0, 0, 0);</string>
+                 </property>
+                 <property name="value">
+                  <number>24</number>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_4">
+               <property name="orientation">
+                <enum>Qt::Orientation::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_8">
+               <item>
+                <widget class="QLabel" name="label_2">
+                 <property name="styleSheet">
+                  <string notr="true">color: rgb(0, 0, 0);
+
+font: 700 11pt &quot;Calibri&quot;;
+border-color: rgb(81, 81, 81);</string>
+                 </property>
+                 <property name="text">
+                  <string>Тест 1</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="state1"/>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="time1">
+             <property name="styleSheet">
+              <string notr="true">color: rgb(0, 0, 0);
+
+font: 700 11pt &quot;Calibri&quot;;
+border-color: rgb(81, 81, 81);</string>
+             </property>
+             <property name="text">
+              <string>Ожидание завершения теста...</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_5">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_5">
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_9">
+               <item>
+                <widget class="QLabel" name="label_3">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>35</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">color: rgb(0, 0, 0);
+
+font: 700 11pt &quot;Calibri&quot;;
+border-color: rgb(81, 81, 81);</string>
+                 </property>
+                 <property name="text">
+                  <string>Сортировка 1000 списков</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QProgressBar" name="progressBar_2">
+                 <property name="minimumSize">
+                  <size>
+                   <width>150</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">gridline-color: rgb(0, 255, 0);
+selection-background-color: rgb(0, 170, 0);
+selection-color: rgb(98, 98, 98);
+border-color: rgb(0, 0, 0);
+color: rgb(0, 0, 0);</string>
+                 </property>
+                 <property name="value">
+                  <number>24</number>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_5">
+               <property name="orientation">
+                <enum>Qt::Orientation::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_10">
+               <item>
+                <widget class="QLabel" name="label_4">
+                 <property name="styleSheet">
+                  <string notr="true">color: rgb(0, 0, 0);
+
+font: 700 11pt &quot;Calibri&quot;;
+border-color: rgb(81, 81, 81);</string>
+                 </property>
+                 <property name="text">
+                  <string>Тест 2</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="state2"/>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="time2">
+             <property name="styleSheet">
+              <string notr="true">color: rgb(0, 0, 0);
+
+font: 700 11pt &quot;Calibri&quot;;
+border-color: rgb(81, 81, 81);</string>
+             </property>
+             <property name="text">
+              <string>Ожидание завершения теста...</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_6">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_6">
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_11">
+               <item>
+                <widget class="QLabel" name="label_5">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>35</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">color: rgb(0, 0, 0);
+
+font: 700 11pt &quot;Calibri&quot;;
+border-color: rgb(81, 81, 81);</string>
+                 </property>
+                 <property name="text">
+                  <string>Сортировка 10000 списков</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QProgressBar" name="progressBar_3">
+                 <property name="minimumSize">
+                  <size>
+                   <width>150</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">gridline-color: rgb(0, 255, 0);
+selection-background-color: rgb(0, 170, 0);
+selection-color: rgb(98, 98, 98);
+border-color: rgb(0, 0, 0);
+color: rgb(0, 0, 0);</string>
+                 </property>
+                 <property name="value">
+                  <number>24</number>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_6">
+               <property name="orientation">
+                <enum>Qt::Orientation::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_12">
+               <item>
+                <widget class="QLabel" name="label_6">
+                 <property name="styleSheet">
+                  <string notr="true">color: rgb(0, 0, 0);
+
+font: 700 11pt &quot;Calibri&quot;;
+border-color: rgb(81, 81, 81);</string>
+                 </property>
+                 <property name="text">
+                  <string>Тест 3</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="state3">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="time3">
+             <property name="styleSheet">
+              <string notr="true">color: rgb(0, 0, 0);
+
+font: 700 11pt &quot;Calibri&quot;;
+border-color: rgb(81, 81, 81);</string>
+             </property>
+             <property name="text">
+              <string>Ожидание завершения теста...</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_10">
+           <property name="orientation">
+            <enum>Qt::Orientation::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_14">
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_7">
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_15">
+               <item>
+                <widget class="QLabel" name="label_7">
+                 <property name="minimumSize">
+                  <size>
+                   <width>195</width>
+                   <height>35</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">color: rgb(0, 0, 0);
+
+font: 700 11pt &quot;Calibri&quot;;
+border-color: rgb(81, 81, 81);</string>
+                 </property>
+                 <property name="text">
+                  <string>Выгрузка/сортировка 100 списков</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QProgressBar" name="progressBar_4">
+                 <property name="minimumSize">
+                  <size>
+                   <width>150</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">gridline-color: rgb(0, 255, 0);
+selection-background-color: rgb(0, 170, 0);
+selection-color: rgb(98, 98, 98);
+border-color: rgb(0, 0, 0);
+color: rgb(0, 0, 0);</string>
+                 </property>
+                 <property name="value">
+                  <number>24</number>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_7">
+               <property name="orientation">
+                <enum>Qt::Orientation::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_16">
+               <item>
+                <widget class="QLabel" name="label_8">
+                 <property name="styleSheet">
+                  <string notr="true">color: rgb(0, 0, 0);
+
+font: 700 11pt &quot;Calibri&quot;;
+border-color: rgb(81, 81, 81);</string>
+                 </property>
+                 <property name="text">
+                  <string>Тест 1</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="state4"/>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="time4">
+             <property name="styleSheet">
+              <string notr="true">color: rgb(0, 0, 0);
+
+font: 700 11pt &quot;Calibri&quot;;
+border-color: rgb(81, 81, 81);</string>
+             </property>
+             <property name="text">
+              <string>Ожидание завершения теста...</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_7">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_8">
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_17">
+               <item>
+                <widget class="QLabel" name="label_9">
+                 <property name="minimumSize">
+                  <size>
+                   <width>195</width>
+                   <height>35</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">color: rgb(0, 0, 0);
+
+font: 700 11pt &quot;Calibri&quot;;
+border-color: rgb(81, 81, 81);</string>
+                 </property>
+                 <property name="text">
+                  <string>Выгрузка/сортировка 1000 списков</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QProgressBar" name="progressBar_5">
+                 <property name="minimumSize">
+                  <size>
+                   <width>150</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">gridline-color: rgb(0, 255, 0);
+selection-background-color: rgb(0, 170, 0);
+selection-color: rgb(98, 98, 98);
+border-color: rgb(0, 0, 0);
+color: rgb(0, 0, 0);</string>
+                 </property>
+                 <property name="value">
+                  <number>24</number>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_8">
+               <property name="orientation">
+                <enum>Qt::Orientation::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_18">
+               <item>
+                <widget class="QLabel" name="label_10">
+                 <property name="styleSheet">
+                  <string notr="true">color: rgb(0, 0, 0);
+
+font: 700 11pt &quot;Calibri&quot;;
+border-color: rgb(81, 81, 81);</string>
+                 </property>
+                 <property name="text">
+                  <string>Тест 2</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="state5"/>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="time5">
+             <property name="styleSheet">
+              <string notr="true">color: rgb(0, 0, 0);
+
+font: 700 11pt &quot;Calibri&quot;;
+border-color: rgb(81, 81, 81);</string>
+             </property>
+             <property name="text">
+              <string>Ожидание завершения теста...</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_8">
+             <property name="orientation">
+              <enum>Qt::Orientation::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_9">
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_19">
+               <item>
+                <widget class="QLabel" name="label_11">
+                 <property name="minimumSize">
+                  <size>
+                   <width>195</width>
+                   <height>35</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">color: rgb(0, 0, 0);
+
+font: 700 11pt &quot;Calibri&quot;;
+border-color: rgb(81, 81, 81);</string>
+                 </property>
+                 <property name="text">
+                  <string>Выгрузка/сортировка 10000 списков</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QProgressBar" name="progressBar_6">
+                 <property name="minimumSize">
+                  <size>
+                   <width>150</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">gridline-color: rgb(0, 255, 0);
+selection-background-color: rgb(0, 170, 0);
+selection-color: rgb(98, 98, 98);
+border-color: rgb(0, 0, 0);
+color: rgb(0, 0, 0);</string>
+                 </property>
+                 <property name="value">
+                  <number>24</number>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_9">
+               <property name="orientation">
+                <enum>Qt::Orientation::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_20">
+               <item>
+                <widget class="QLabel" name="label_12">
+                 <property name="styleSheet">
+                  <string notr="true">color: rgb(0, 0, 0);
+
+font: 700 11pt &quot;Calibri&quot;;
+border-color: rgb(81, 81, 81);</string>
+                 </property>
+                 <property name="text">
+                  <string>Тест 3</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="state6"/>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="time6">
+             <property name="styleSheet">
+              <string notr="true">color: rgb(0, 0, 0);
+
+font: 700 11pt &quot;Calibri&quot;;
+border-color: rgb(81, 81, 81);</string>
+             </property>
+             <property name="text">
+              <string>Ожидание завершения теста...</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="layoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>770</x>
+        <y>60</y>
+        <width>301</width>
+        <height>421</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_35">
+       <item>
+        <widget class="QPushButton" name="clearDatabaseButton">
+         <property name="maximumSize">
+          <size>
+           <width>140</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(0, 0, 0);
+color: rgb(255, 255, 255);
+
+font: 700 11pt &quot;Calibri&quot;;</string>
+         </property>
+         <property name="text">
+          <string>Запустить тест очистки</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_33">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_14">
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_28">
+             <item>
+              <widget class="QLabel" name="label_19">
+               <property name="minimumSize">
+                <size>
+                 <width>150</width>
+                 <height>35</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color: rgb(0, 0, 0);
+
+font: 700 11pt &quot;Calibri&quot;;
+border-color: rgb(81, 81, 81);</string>
+               </property>
+               <property name="text">
+                <string>Удаление 100 списков</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="time7">
+               <property name="styleSheet">
+                <string notr="true">color: rgb(0, 0, 0);
+
+font: 700 11pt &quot;Calibri&quot;;
+border-color: rgb(81, 81, 81);</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_14">
+             <property name="orientation">
+              <enum>Qt::Orientation::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_27">
+             <item>
+              <widget class="QLabel" name="label_20">
+               <property name="styleSheet">
+                <string notr="true">color: rgb(0, 0, 0);
+
+font: 700 11pt &quot;Calibri&quot;;
+border-color: rgb(81, 81, 81);</string>
+               </property>
+               <property name="text">
+                <string>Тест 1</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="state7">
+               <property name="styleSheet">
+                <string notr="true">color: rgb(0, 0, 0);
+
+font: 700 11pt &quot;Calibri&quot;;
+border-color: rgb(81, 81, 81);</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_10">
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_15">
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_29">
+             <item>
+              <widget class="QLabel" name="label_21">
+               <property name="minimumSize">
+                <size>
+                 <width>150</width>
+                 <height>35</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color: rgb(0, 0, 0);
+
+font: 700 11pt &quot;Calibri&quot;;
+border-color: rgb(81, 81, 81);</string>
+               </property>
+               <property name="text">
+                <string>Удаление 1000 списков</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="time8">
+               <property name="styleSheet">
+                <string notr="true">color: rgb(0, 0, 0);
+
+font: 700 11pt &quot;Calibri&quot;;
+border-color: rgb(81, 81, 81);</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_15">
+             <property name="orientation">
+              <enum>Qt::Orientation::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_30">
+             <item>
+              <widget class="QLabel" name="label_22">
+               <property name="styleSheet">
+                <string notr="true">color: rgb(0, 0, 0);
+
+font: 700 11pt &quot;Calibri&quot;;
+border-color: rgb(81, 81, 81);</string>
+               </property>
+               <property name="text">
+                <string>Тест 2</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="state8">
+               <property name="styleSheet">
+                <string notr="true">color: rgb(0, 0, 0);
+
+font: 700 11pt &quot;Calibri&quot;;
+border-color: rgb(81, 81, 81);</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_9">
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_16">
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_31">
+             <item>
+              <widget class="QLabel" name="label_23">
+               <property name="minimumSize">
+                <size>
+                 <width>150</width>
+                 <height>35</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color: rgb(0, 0, 0);
+
+font: 700 11pt &quot;Calibri&quot;;
+border-color: rgb(81, 81, 81);</string>
+               </property>
+               <property name="text">
+                <string>Удаление 10000 списков</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="time9">
+               <property name="styleSheet">
+                <string notr="true">color: rgb(0, 0, 0);
+
+font: 700 11pt &quot;Calibri&quot;;
+border-color: rgb(81, 81, 81);</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_16">
+             <property name="orientation">
+              <enum>Qt::Orientation::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_32">
+             <item>
+              <widget class="QLabel" name="label_24">
+               <property name="styleSheet">
+                <string notr="true">color: rgb(0, 0, 0);
+
+font: 700 11pt &quot;Calibri&quot;;
+border-color: rgb(81, 81, 81);</string>
+               </property>
+               <property name="text">
+                <string>Тест 3</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="state9">
+               <property name="styleSheet">
+                <string notr="true">color: rgb(0, 0, 0);
+
+font: 700 11pt &quot;Calibri&quot;;
+border-color: rgb(81, 81, 81);</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QTextEdit" name="resultEdit1">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>500</y>
+        <width>301</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+
+font: 700 11pt &quot;Calibri&quot;;
+border-color: rgb(81, 81, 81);</string>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="resultEdit2">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>500</y>
+        <width>361</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+
+font: 700 11pt &quot;Calibri&quot;;
+border-color: rgb(81, 81, 81);</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="testViewButton">
+      <property name="geometry">
+       <rect>
+        <x>770</x>
+        <y>500</y>
+        <width>251</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(0, 0, 0);
+color: rgb(255, 255, 255);
+
+font: 700 11pt &quot;Calibri&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Посмотреть содержимое тестовой БД</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>20</y>
+      <width>301</width>
+      <height>761</height>
+     </rect>
+    </property>
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>260</y>
+       <width>241</width>
+       <height>201</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QPushButton" name="newArrButton">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>44</height>
+         </size>
+        </property>
+        <property name="whatsThis">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 10pt &quot;Franklin Gothic Demi&quot;;
+background-color: rgb(0, 0, 0);
+color: rgb(255, 255, 255);
+border-color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string>Сортировка нового списка</string>
+        </property>
+        <property name="autoDefault">
+         <bool>false</bool>
+        </property>
+        <property name="default">
+         <bool>false</bool>
+        </property>
+        <property name="flat">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Orientation::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="viewButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+          <horstretch>5</horstretch>
+          <verstretch>5</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>200</width>
+          <height>44</height>
+         </size>
+        </property>
+        <property name="mouseTracking">
+         <bool>true</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 10pt &quot;Franklin Gothic Demi&quot;;
+background-color: rgb(0, 0, 0);
+border-top-color: rgb(255, 255, 255);
+alternate-background-color: rgb(255, 255, 255);
+color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string>Просмотр моих списков</string>
+        </property>
+        <property name="flat">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Orientation::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="testButton">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>44</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 11pt &quot;Franklin Gothic Demi&quot;;
+border-color: rgb(255, 255, 255);
+color: rgb(255, 255, 255);
+background-color: rgb(167, 58, 58);</string>
+        </property>
+        <property name="text">
+         <string>Тестирование</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

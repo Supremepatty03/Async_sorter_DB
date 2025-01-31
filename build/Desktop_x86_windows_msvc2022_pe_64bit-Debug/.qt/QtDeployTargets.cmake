@@ -1,0 +1,6 @@
+set(__QT_DEPLOY_TARGET_db_productivity_test_FILE C:/Users/User/Documents/untitled1/build/Desktop_x86_windows_msvc2022_pe_64bit-Debug/db_productivity_test.exe)
+set(__QT_DEPLOY_TARGET_db_productivity_test_TYPE EXECUTABLE)
+set(__QT_DEPLOY_TARGET_db_productivity_test_RUNTIME_DLLS D:/qt/6.8.0/msvc2022_64/bin/Qt6Testd.dll;D:/qt/6.8.0/msvc2022_64/bin/Qt6Sqld.dll;D:/qt/6.8.0/msvc2022_64/bin/Qt6Cored.dll)
+set(__QT_DEPLOY_TARGET_untitled1_FILE C:/Users/User/Documents/untitled1/build/Desktop_x86_windows_msvc2022_pe_64bit-Debug/untitled1.exe)
+set(__QT_DEPLOY_TARGET_untitled1_TYPE EXECUTABLE)
+set(__QT_DEPLOY_TARGET_untitled1_RUNTIME_DLLS D:/qt/6.8.0/msvc2022_64/bin/Qt6Sqld.dll;D:/qt/6.8.0/msvc2022_64/bin/Qt6Testd.dll;D:/qt/6.8.0/msvc2022_64/bin/Qt6Widgetsd.dll;D:/qt/6.8.0/msvc2022_64/bin/Qt6Guid.dll;D:/qt/6.8.0/msvc2022_64/bin/Qt6Cored.dll)

@@ -1,0 +1,10 @@
+C:/Users/User/Documents/untitled1/build/Desktop_x86_windows_msvc2022_pe_64bit-Debug/CMakeFiles/db_productivity_test.dir
+C:/Users/User/Documents/untitled1/build/Desktop_x86_windows_msvc2022_pe_64bit-Debug/CMakeFiles/untitled1.dir
+C:/Users/User/Documents/untitled1/build/Desktop_x86_windows_msvc2022_pe_64bit-Debug/CMakeFiles/test.dir
+C:/Users/User/Documents/untitled1/build/Desktop_x86_windows_msvc2022_pe_64bit-Debug/CMakeFiles/edit_cache.dir
+C:/Users/User/Documents/untitled1/build/Desktop_x86_windows_msvc2022_pe_64bit-Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/User/Documents/untitled1/build/Desktop_x86_windows_msvc2022_pe_64bit-Debug/CMakeFiles/list_install_components.dir
+C:/Users/User/Documents/untitled1/build/Desktop_x86_windows_msvc2022_pe_64bit-Debug/CMakeFiles/install.dir
+C:/Users/User/Documents/untitled1/build/Desktop_x86_windows_msvc2022_pe_64bit-Debug/CMakeFiles/install/local.dir
+C:/Users/User/Documents/untitled1/build/Desktop_x86_windows_msvc2022_pe_64bit-Debug/CMakeFiles/db_productivity_test_autogen.dir
+C:/Users/User/Documents/untitled1/build/Desktop_x86_windows_msvc2022_pe_64bit-Debug/CMakeFiles/untitled1_autogen.dir
