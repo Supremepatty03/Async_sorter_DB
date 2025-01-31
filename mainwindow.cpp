@@ -301,6 +301,7 @@ MainWindow::MainWindow(const int userID, QWidget *parent)
         ui->progressBar_4->setValue(0);
         ui->progressBar_5->setValue(0);
         ui->progressBar_6->setValue(0);
+        // zgzg zgagdgaagad
     }
     void MainWindow::on_testViewButton_clicked(){
         ui->stackedWidget->setCurrentIndex(2);
