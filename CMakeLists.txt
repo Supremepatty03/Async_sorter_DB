@@ -47,6 +47,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         ${PROJECT_SOURCES}
         db_manager.h db_manager.cpp
         registrationwindow.h registrationwindow.cpp registrationwindow.ui
+        sortworker.h sortworker.cpp
+        connectionpool.h connectionpool.cpp
 
     )
 # Define target properties for Android with Qt 6 as:

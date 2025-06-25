@@ -33,7 +33,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="page_3">
      <widget class="QWidget" name="layoutWidget">
@@ -535,7 +535,7 @@ color: rgb(255, 255, 255);</string>
        <string>Вернуться к тестам</string>
       </property>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>110</x>

@@ -47,11 +47,14 @@ set(OLD_GLOB
   "C:/Users/User/Documents/untitled1/build/Desktop_x86_windows_msvc2022_pe_64bit-Debug/db_productivity_test_autogen/mocs_compilation.cpp"
   "C:/Users/User/Documents/untitled1/build/Desktop_x86_windows_msvc2022_pe_64bit-Debug/untitled1_autogen/EWIEGA46WW/moc_mainwindow.cpp"
   "C:/Users/User/Documents/untitled1/build/Desktop_x86_windows_msvc2022_pe_64bit-Debug/untitled1_autogen/EWIEGA46WW/moc_registrationwindow.cpp"
+  "C:/Users/User/Documents/untitled1/build/Desktop_x86_windows_msvc2022_pe_64bit-Debug/untitled1_autogen/EWIEGA46WW/moc_sortworker.cpp"
   "C:/Users/User/Documents/untitled1/build/Desktop_x86_windows_msvc2022_pe_64bit-Debug/untitled1_autogen/mocs_compilation.cpp"
+  "C:/Users/User/Documents/untitled1/connectionpool.cpp"
   "C:/Users/User/Documents/untitled1/db_manager.cpp"
   "C:/Users/User/Documents/untitled1/main.cpp"
   "C:/Users/User/Documents/untitled1/mainwindow.cpp"
   "C:/Users/User/Documents/untitled1/registrationwindow.cpp"
+  "C:/Users/User/Documents/untitled1/sortworker.cpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
@@ -75,11 +78,13 @@ set(OLD_GLOB
   "C:/Users/User/Documents/untitled1/build/Desktop_x86_windows_msvc2022_pe_64bit-Debug/CMakeFiles/ShowIncludes/foo.h"
   "C:/Users/User/Documents/untitled1/build/Desktop_x86_windows_msvc2022_pe_64bit-Debug/untitled1_autogen/include/ui_mainwindow.h"
   "C:/Users/User/Documents/untitled1/build/Desktop_x86_windows_msvc2022_pe_64bit-Debug/untitled1_autogen/include/ui_registrationwindow.h"
+  "C:/Users/User/Documents/untitled1/connectionpool.h"
   "C:/Users/User/Documents/untitled1/db_manager.h"
   "C:/Users/User/Documents/untitled1/include/framework.h"
   "C:/Users/User/Documents/untitled1/include/pch.h"
   "C:/Users/User/Documents/untitled1/mainwindow.h"
   "C:/Users/User/Documents/untitled1/registrationwindow.h"
+  "C:/Users/User/Documents/untitled1/sortworker.h"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")

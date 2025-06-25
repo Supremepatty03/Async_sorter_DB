@@ -9,11 +9,18 @@
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QDebug>
+#include "connectionpool.h"
 
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+    ConnectionPool::instance().init(
+        "QSQLITE",
+        "C:/SQLite/my_database2.db",
+        /* poolSize = */ 6,
+        /* connectOptions (не используется для PRAGMA) */ QString()
+        );
     QTranslator translator;
     const QStringList uiLanguages = QLocale::system().uiLanguages();
     for (const QString &locale : uiLanguages) {

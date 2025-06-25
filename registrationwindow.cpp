@@ -103,7 +103,7 @@ void registrationwindow::on_AutorisationButton_clicked() {
             userID = ID_result.toString().toInt(&ok);
             
             
-            QString queryStr2 = QString("SELECT user_password, salt FROM users WHERE username = '%1'").arg(loginText);
+            QString queryStr2 = QString("SELECT hash_password, salt FROM users WHERE username = '%1'").arg(loginText);
             QVector<QVariant> passwordResult = dbManager.ExecuteSelectQuery_UserHashPassword(queryStr2);
             QString stored_hash = passwordResult[0].toString();
             QString stored_salt = passwordResult[1].toString();

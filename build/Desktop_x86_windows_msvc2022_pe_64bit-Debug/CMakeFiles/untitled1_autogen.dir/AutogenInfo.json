@@ -475,6 +475,12 @@
 	"HEADERS" : 
 	[
 		[
+			"C:/Users/User/Documents/untitled1/connectionpool.h",
+			"MU",
+			"EWIEGA46WW/moc_connectionpool.cpp",
+			null
+		],
+		[
 			"C:/Users/User/Documents/untitled1/db_manager.h",
 			"MU",
 			"EWIEGA46WW/moc_db_manager.cpp",
@@ -490,6 +496,12 @@
 			"C:/Users/User/Documents/untitled1/registrationwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_registrationwindow.cpp",
+			null
+		],
+		[
+			"C:/Users/User/Documents/untitled1/sortworker.h",
+			"MU",
+			"EWIEGA46WW/moc_sortworker.cpp",
 			null
 		]
 	],
@@ -560,6 +572,7 @@
 	"SETTINGS_FILE" : "C:/Users/User/Documents/untitled1/build/Desktop_x86_windows_msvc2022_pe_64bit-Debug/CMakeFiles/untitled1_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
+		[ "C:/Users/User/Documents/untitled1/connectionpool.cpp", "MU", null ],
 		[ "C:/Users/User/Documents/untitled1/db_manager.cpp", "MU", null ],
 		[ "C:/Users/User/Documents/untitled1/main.cpp", "MU", null ],
 		[ "C:/Users/User/Documents/untitled1/mainwindow.cpp", "MU", null ],
@@ -567,7 +580,8 @@
 			"C:/Users/User/Documents/untitled1/registrationwindow.cpp",
 			"MU",
 			null
-		]
+		],
+		[ "C:/Users/User/Documents/untitled1/sortworker.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],

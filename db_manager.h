@@ -17,9 +17,10 @@ public: // methods
     ~db_manager();
     void closeDatabase();
     int insertUser(const QString& username, const QString& password);
-    bool set_connection (DB_config Default_config);
+    bool set_connection(const DB_config& cfg);
 
 public: //functions
+    static db_manager& getInstance();
     QVector<QVector<QVariant>> ExecuteSelectQuery_allUserData(const QString StrQuery);
     QVariant ExecuteSelectQuery_SingleData(const QString StrQuery, QString loginText);
     QVector<QString> convertToVec (QString input);
@@ -36,9 +37,14 @@ public: //functions
     QVector<QVariant> ExecuteSelectQuery_UserHashPassword(const QString StrQuery);
     QByteArray generateSalt();
 private:
-    static QSqlDatabase db;
-    static bool connectionInitialized;
-
+    //static QSqlDatabase db;
+    //static bool connectionInitialized;
+    QSqlDatabase& databaseForThisThread();
+    QThreadStorage<QSqlDatabase> threadLocalDb;
+    QString dbPath;
+    db_manager(const db_manager&) = delete;
+    void operator=(const db_manager&) = delete;
+    static QMutex s_dbMutex;
 };
 
 #endif // DB_MANAGER_H

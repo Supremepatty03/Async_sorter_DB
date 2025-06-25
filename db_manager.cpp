@@ -2,22 +2,49 @@
 #include <QCryptographicHash>
 #include <QRandomGenerator>
 
-QSqlDatabase db_manager::db;
-bool db_manager::connectionInitialized = false;
+//QSqlDatabase db_manager::db;
+//bool db_manager::connectionInitialized = false;
 
 db_manager::db_manager() {
-    if (!connectionInitialized) {
-        db = QSqlDatabase::addDatabase("QSQLITE", "my_connection");
-        connectionInitialized = true;
+    dbPath = "C:/SQLite/my_database2.db";
+}
+db_manager::~db_manager() {
+}
+QSqlDatabase& db_manager::databaseForThisThread() {
+    if (!threadLocalDb.hasLocalData()) {
+        QString connName = QString("db_%1")
+        .arg((quintptr)QThread::currentThreadId());
+
+        // создаём локальное соединение
+        QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE", connName);
+        db.setDatabaseName(dbPath);
+        if (!db.open()) {
+            qWarning() << "Нельзя открыть БД в потоке"
+                       << QThread::currentThreadId()
+                       << db.lastError().text();
+        } else {
+            db.exec("PRAGMA journal_mode = DELETE;");
+            db.exec("PRAGMA busy_timeout = 3000;");
+        }
+        // В threadLocalDb хранится копия QSqlDatabase
+        threadLocalDb.setLocalData(db);
     }
+    return threadLocalDb.localData();
 }
 
-void db_manager::closeDatabase(){
-    if (db.isOpen()){
+db_manager& db_manager::getInstance() {
+    static db_manager instance;
+    return instance;
+}
+void db_manager::closeDatabase() {
+    if (threadLocalDb.hasLocalData()) {
+        // Закрываем и удаляем соединение в этом потоке
+        QSqlDatabase& db = threadLocalDb.localData();
+        QString connName = db.connectionName();
         db.close();
-        //вывод о закрытии соединения
+        QSqlDatabase::removeDatabase(connName);
+        //threadLocalDb.removeLocalData();
     }
-    QSqlDatabase::removeDatabase("my_connection");
 }
 
 QByteArray db_manager::hashPassword(const QString &password, const QByteArray &salt){
@@ -34,37 +61,50 @@ QByteArray db_manager::generateSalt() {
     return salt;
 }
 int db_manager::insertUser(const QString& username, const QString& password) {
-    if (!db.isOpen()) {  // Проверка на открытость
-        qDebug() << "Не удалось открыть соединение с базой данных.";
-        return 1;
-    }
-    // Проверка: существует ли пользователь с таким именем
-    QSqlQuery checkQuery(db);
-    checkQuery.prepare("SELECT COUNT(*) FROM users WHERE username = :username");
-    checkQuery.bindValue(":username", username);
+    QSqlDatabase& db = databaseForThisThread();
 
-    if (!checkQuery.exec() || !checkQuery.next()) {
-        qDebug() << "Ошибка при проверке существования пользователя:" << checkQuery.lastError().text();
-        return 2;
+    // 1) Проверка: нет ли уже такого пользователя
+    {
+        QSqlQuery chk(db);
+        chk.prepare("SELECT COUNT(*) FROM users WHERE username = ?");
+        chk.addBindValue(username);
+        if (!chk.exec() || !chk.next()) {
+            qDebug() << "[insertUser] Ошибка проверки:" << chk.lastError().text();
+            return 2;
+        }
+        if (chk.value(0).toInt() > 0) {
+            qDebug() << "[insertUser] Пользователь уже существует";
+            return 3;
+        }
     }
 
-    int count = checkQuery.value(0).toInt();
-    if (count > 0) {
-        qDebug() << "Пользователь с таким именем уже существует.";
-        return 3;
-    }
-    QSqlQuery query(db);
-    query.prepare("INSERT INTO users (username, user_password) Values (:username, :password)");
-    query.bindValue(":username", username);
-    query.bindValue(":password", password);
-    if (!query.exec()) {
-        qDebug() << "Ошибка выполнения запроса:" << query.lastError().text();
+    // 2) Генерация соли и хэша
+    QByteArray salt = QCryptographicHash::hash(
+                          QDateTime::currentDateTime().toString("yyyyMMddhhmmsszzz").toUtf8(),
+                          QCryptographicHash::Md5
+                          ).toHex();
+    QByteArray hash = hashPassword(password, salt);
+
+    // 3) Вставка нового пользователя
+    QSqlQuery ins(db);
+    ins.prepare(
+        "INSERT INTO users (username, salt, hash_password) "
+        "VALUES (?, ?, ?)"
+        );
+    ins.addBindValue(username);
+    ins.addBindValue(QString::fromUtf8(salt));
+    ins.addBindValue(QString::fromUtf8(hash));
+
+    if (!ins.exec()) {
+        qDebug() << "[insertUser] Ошибка INSERT:" << ins.lastError().text();
         return 4;
     }
+
+    qDebug() << "[insertUser] Успешная регистрация:" << username;
     return 0;
 }
-
 int db_manager::insertArray(int user_id, const QString& array, const QString& sortedArray){
+    QSqlDatabase& db = databaseForThisThread();
     QSqlQuery query(db);
     query.prepare("INSERT INTO user_arrays (user_id, unsorted_array, sorted_array) VALUES (:userID, :unsortedArray, :sortedArray)");
     query.bindValue(":userID", user_id);
@@ -72,123 +112,78 @@ int db_manager::insertArray(int user_id, const QString& array, const QString& so
     query.bindValue(":sortedArray", sortedArray);
     if (!query.exec()) {
         qDebug() << "Ошибка выполнения запроса:" << query.lastError().text();
-        return 1;  // Ошибка запроса
+        return 1;
     }
     return 0;
 }
 
-db_manager::~db_manager(){
-    closeDatabase();
-}
-
-bool db_manager::set_connection(DB_config Default_config){
-    if (!QSqlDatabase::isDriverAvailable("QSQLITE")) {
-        qDebug() << "QSQLITE драйвер не доступен!";
-        return false;
-    }
-    db.setDatabaseName(Default_config.database_path);
-    if (!db.open()){
-        qDebug() << "Не удалось подключиться к базе данных:" << db.lastError().text();
-        return false;
-    }
-    qDebug() << "Удалось подключиться к базе данных";
+bool db_manager::set_connection(const DB_config& cfg) {
+    dbPath = cfg.database_path;
     return true;
 }
 
-QVariant db_manager::ExecuteSelectQuery_SingleData(const QString StrQuery, QString loginText){
-    if (!db.isOpen()) {  // Проверка на открытость
-        qDebug() << "Не удалось открыть соединение с базой данных.";
-        return QVariant();
-    }
-    QSqlQuery query (db);
+QVariant db_manager::ExecuteSelectQuery_SingleData(const QString StrQuery, QString loginText) {
+    QSqlDatabase& db = databaseForThisThread();
+    QSqlQuery query(db);
     query.prepare(StrQuery);
     query.bindValue(":username", loginText);
-
-    if (!query.exec()){
-        //err mess
+    if (!query.exec() || !query.next())
         return QVariant();
-    }
-    if (query.next()){
-        return query.value(0).toString();
-    }
-    else{
-        // no res mess
-        return QVariant();
-    }
+    return query.value(0);
 }
 
-QVariant db_manager::ExecuteSelectQuery_SingleArray(const QString StrQuery, int arg, int user_id){
-    if (!db.isOpen()) {  // Проверка на открытость
-        qDebug() << "Не удалось открыть соединение с базой данных.";
-        return QVariant();
-    }
-    QSqlQuery query (db);
-    query.prepare(StrQuery);
-    query.bindValue(":array", arg);
-    query.bindValue(":user_id", user_id);
-    if (!query.exec()){
-        //err mess
-        qDebug() << "Ошибка выполнения запроса:" << query.lastError();
-        return QVariant();
-    }
-    if (query.next()){
-        return query.value(0).toString();
-    }
-    else{
-        // no res mess
-        return QVariant();
-    }
-}
+QMutex db_manager::s_dbMutex;
 
-QVector<QVector<QVariant>> db_manager::ExecuteSelectQuery_allUserData(const QString StrQuery)
+QVariant db_manager::ExecuteSelectQuery_SingleArray(
+    const QString StrQuery, int arg, int user_id)
 {
-    QVector<QVector<QVariant>> resultMatrix;
-    if (!db.isOpen()) {  // Проверка на открытость
-        qDebug() << "Не удалось открыть соединение с базой данных.";
-        return resultMatrix;
-    }
-    QSqlQuery query (db);
+    QMutexLocker locker(&s_dbMutex);
+    QSqlDatabase& db = databaseForThisThread();
+    QSqlQuery query(db);
     query.prepare(StrQuery);
+    query.bindValue(":array",   arg);
+    query.bindValue(":user_id", user_id);
+    if (!query.exec() || !query.next())
+        return QVariant();
+    return query.value(0);
+}
 
+QVector<QVector<QVariant>> db_manager::ExecuteSelectQuery_allUserData(const QString StrQuery) {
+    QVector<QVector<QVariant>> resultMatrix;
 
-    if(!query.exec())
-    {
-        //error message
+    // Берём или создаём соединение в этом потоке
+    QSqlDatabase& db = databaseForThisThread();
+    if (!db.isOpen()) {
+        qDebug() << "[allUserData] БД не открыта в потоке"
+                 << QThread::currentThreadId();
         return resultMatrix;
     }
 
-    while(query.next())
-    {
+    QSqlQuery query(db);
+    query.prepare(StrQuery);
+    if (!query.exec()) {
+        qDebug() << "[allUserData] Ошибка запроса:" << query.lastError().text();
+        return resultMatrix;
+    }
+
+    while (query.next()) {
         QVector<QVariant> row;
-        for (int i = 0; i < query.record().count(); ++i) {
-            row.append(query.value(i));  // Добавляем значение столбца в строку
-        }
-        resultMatrix.append(row);  // Добавляем строку в матрицу
+        for (int i = 0; i < query.record().count(); ++i)
+            row.append(query.value(i));
+        resultMatrix.append(row);
     }
     return resultMatrix;
 }
-QVector<QVariant> db_manager::ExecuteSelectQuery_UserHashPassword(const QString StrQuery)
-{
+QVector<QVariant> db_manager::ExecuteSelectQuery_UserHashPassword(const QString StrQuery) {
     QVector<QVariant> result;
-    if (!db.isOpen()) {  // Проверка на открытость
-        qDebug() << "Не удалось открыть соединение с базой данных.";
-        return result;
-    }
-    QSqlQuery query (db);
+    QSqlDatabase& db = databaseForThisThread();
+    QSqlQuery query(db);
     query.prepare(StrQuery);
-
-    if(!query.exec())
-    {
-        //error message
+    if (!query.exec())
         return result;
-    }
-
-    while(query.next())
-    {
-        for (int i = 0; i < query.record().count(); ++i) {
+    while (query.next())
+        for (int i = 0; i < query.record().count(); ++i)
             result.append(query.value(i));
-        }
-    }
     return result;
 }
 QVector<QString> db_manager::convertToVec (QString input){
@@ -205,48 +200,40 @@ QString convertToString (QVector<QString> input){
 
 QVector<QPair<QString, QString>> db_manager::getUserArrays(int userID) {
     QVector<QPair<QString, QString>> arrays;
-
-    if (!db.isOpen()) {
-        qDebug() << "База данных не открыта!";
-        return arrays;
-    }
-    QSqlQuery query (db);
-    query.prepare("SELECT unsorted_array, sorted_array FROM user_arrays WHERE user_id = :userID");
+    QSqlDatabase& db = databaseForThisThread();
+    QSqlQuery query(db);
+    query.prepare(
+        "SELECT unsorted_array, sorted_array "
+        "FROM user_arrays WHERE user_id = :userID"
+        );
     query.bindValue(":userID", userID);
-
-    if(!query.exec()){
-        qDebug() << "Ошибка выполнения запроса: " << query.lastError().text();
+    if (!query.exec())
         return arrays;
-    }
-    while (query.next()){
-        QString unsorted = query.value(0).toString();
-        QString sorted = query.value(1).toString();
-        arrays.append(qMakePair(unsorted,sorted));
+    while (query.next()) {
+        arrays.append(qMakePair(
+            query.value(0).toString(),
+            query.value(1).toString()
+            ));
     }
     return arrays;
-
 }
 
-void db_manager::updateArray_query(const QString StrQuery, const QString unsortedArray, const QString sortedArray, int arrayID, int userID){
-    if (!db.isOpen()) {
-        qDebug() << "База данных не открыта!";
-        return ;
-    }
-    QSqlQuery query (db);
+void db_manager::updateArray_query(
+    const QString StrQuery,
+    const QString unsortedArray,
+    const QString sortedArray,
+    int arrayID,
+    int userID)
+{
+    QSqlDatabase& db = databaseForThisThread();
+    QSqlQuery query(db);
     query.prepare(StrQuery);
     query.bindValue(":unsortedArray", unsortedArray);
-    query.bindValue(":sortedArray", sortedArray);
-    query.bindValue(":arrayID", arrayID);
-    query.bindValue(":userID", userID);
-    if(!query.exec())
-    {
-        //error message
-        return;
-    }
-    else {
-        qDebug() << "Данные успешно обновлены!";
-    }
-    return;
+    query.bindValue(":sortedArray",   sortedArray);
+    query.bindValue(":arrayID",       arrayID);
+    query.bindValue(":userID",        userID);
+    if (!query.exec())
+        qDebug() << "updateArray_query ошибка:" << query.lastError().text();
 }
 
 std::vector<std::string> db_manager::default_data() {
@@ -279,34 +266,29 @@ std::vector<std::string> db_manager::default_data() {
 }
 
 bool db_manager::clearDatabase(int recordCount) {
-    if (!db.isOpen()) {  // Проверка на открытость
-        qDebug() << "Не удалось открыть соединение с базой данных.";
-        return false;
-    }
+    QSqlDatabase& db = databaseForThisThread();
     QSqlQuery query(db);
-    int testUserId = 2; // TEST_ID
-
+    // пример для тестового user_id=2, лучше параметризовать
     QString deleteQuery = QString(
                               "DELETE FROM user_arrays "
-                              "WHERE array_id IN ("
-                              "    SELECT array_id "
-                              "    FROM user_arrays "
-                              "    WHERE user_id = %1 " // TEST_ID
-                              "    ORDER BY array_id ASC "
-                              "    LIMIT %2"
+                              "WHERE array_id IN ( "
+                              "  SELECT array_id "
+                              "  FROM user_arrays "
+                              "  WHERE user_id = 2 "
+                              "  ORDER BY array_id ASC "
+                              "  LIMIT %1 "
                               ")"
-                              ).arg(testUserId).arg(recordCount);
+                              ).arg(recordCount);
     if (!query.exec(deleteQuery)) {
-        qDebug() << "Ошибка удаления данных:" << query.lastError().text();
+        qDebug() << "clearDatabase ошибка:" << query.lastError().text();
         return false;
     }
-
     return true;
 }
 
-
 int db_manager::getRandomArrayId(int user_id) {
     // 1. Найти минимальный и максимальный ID
+    QSqlDatabase& db = databaseForThisThread();
     QSqlQuery query(db);
     QString queryString = QString(
         "SELECT MIN(array_id) AS min_id, MAX(array_id) AS max_id "
@@ -347,29 +329,15 @@ int db_manager::getRandomArrayId(int user_id) {
     }
 }
 
-int db_manager::getMinArrayId(int user_id)
-{
-    // 1. Найти минимальный и максимальный ID
+int db_manager::getMinArrayId(int user_id) {
+    QSqlDatabase& db = databaseForThisThread();
     QSqlQuery query(db);
-    QString queryString = QString(
-                              "SELECT MIN(array_id) AS min_id, MAX(array_id) AS max_id "
-                              "FROM user_arrays WHERE user_id = %1"
-                              ).arg(user_id);
-
-    if (!query.exec(queryString)) {
-        qDebug() << "Ошибка получения диапазона ID:" << query.lastError().text();
-        return -1; // Ошибка
-    }
-
-    if (!query.next()) {
-        qDebug() << "Таблица user_arrays пуста!";
-        return -1; // Пустая таблица
-    }
-
-    int minId = query.value("min_id").toInt();
-
-    return minId;
-
+    query.prepare(
+        "SELECT MIN(array_id) FROM user_arrays WHERE user_id = :uid"
+        );
+    query.bindValue(":uid", user_id);
+    if (!query.exec() || !query.next())
+        return -1;
+    return query.value(0).toInt();
 }
-
 

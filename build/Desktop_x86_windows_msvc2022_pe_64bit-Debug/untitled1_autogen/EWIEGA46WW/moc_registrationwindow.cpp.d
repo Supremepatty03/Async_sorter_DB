@@ -4,6 +4,7 @@ C:/Users/User/Documents/untitled1/build/Desktop_x86_windows_msvc2022_pe_64bit-De
   D:/qt/6.8.0/msvc2022_64/include/QtCore/QCoreApplication \
   D:/qt/6.8.0/msvc2022_64/include/QtCore/QDeadlineTimer \
   D:/qt/6.8.0/msvc2022_64/include/QtCore/QDebug \
+  D:/qt/6.8.0/msvc2022_64/include/QtCore/QElapsedTimer \
   D:/qt/6.8.0/msvc2022_64/include/QtCore/QHash \
   D:/qt/6.8.0/msvc2022_64/include/QtCore/QList \
   D:/qt/6.8.0/msvc2022_64/include/QtCore/QMap \
@@ -293,12 +294,18 @@ C:/Users/User/Documents/untitled1/build/Desktop_x86_windows_msvc2022_pe_64bit-De
   D:/qt/6.8.0/msvc2022_64/include/QtGui/qkeysequence.h \
   D:/qt/6.8.0/msvc2022_64/include/QtGui/qpaintdevice.h \
   D:/qt/6.8.0/msvc2022_64/include/QtGui/qpalette.h \
+  D:/qt/6.8.0/msvc2022_64/include/QtGui/qpen.h \
+  D:/qt/6.8.0/msvc2022_64/include/QtGui/qpicture.h \
   D:/qt/6.8.0/msvc2022_64/include/QtGui/qpixelformat.h \
   D:/qt/6.8.0/msvc2022_64/include/QtGui/qpixmap.h \
   D:/qt/6.8.0/msvc2022_64/include/QtGui/qpolygon.h \
   D:/qt/6.8.0/msvc2022_64/include/QtGui/qregion.h \
   D:/qt/6.8.0/msvc2022_64/include/QtGui/qrgb.h \
   D:/qt/6.8.0/msvc2022_64/include/QtGui/qrgba64.h \
+  D:/qt/6.8.0/msvc2022_64/include/QtGui/qtextcursor.h \
+  D:/qt/6.8.0/msvc2022_64/include/QtGui/qtextdocument.h \
+  D:/qt/6.8.0/msvc2022_64/include/QtGui/qtextformat.h \
+  D:/qt/6.8.0/msvc2022_64/include/QtGui/qtextoption.h \
   D:/qt/6.8.0/msvc2022_64/include/QtGui/qtgui-config.h \
   D:/qt/6.8.0/msvc2022_64/include/QtGui/qtguiexports.h \
   D:/qt/6.8.0/msvc2022_64/include/QtGui/qtguiglobal.h \
@@ -328,7 +335,10 @@ C:/Users/User/Documents/untitled1/build/Desktop_x86_windows_msvc2022_pe_64bit-De
   D:/qt/6.8.0/msvc2022_64/include/QtSql/qtsqlglobal.h \
   D:/qt/6.8.0/msvc2022_64/include/QtSql/qtsqlversion.h \
   D:/qt/6.8.0/msvc2022_64/include/QtWidgets/QApplication \
+  D:/qt/6.8.0/msvc2022_64/include/QtWidgets/QLabel \
   D:/qt/6.8.0/msvc2022_64/include/QtWidgets/QMainWindow \
+  D:/qt/6.8.0/msvc2022_64/include/QtWidgets/QProgressBar \
+  D:/qt/6.8.0/msvc2022_64/include/QtWidgets/QTextEdit \
   D:/qt/6.8.0/msvc2022_64/include/QtWidgets/qabstractitemdelegate.h \
   D:/qt/6.8.0/msvc2022_64/include/QtWidgets/qabstractitemview.h \
   D:/qt/6.8.0/msvc2022_64/include/QtWidgets/qabstractscrollarea.h \
@@ -337,8 +347,10 @@ C:/Users/User/Documents/untitled1/build/Desktop_x86_windows_msvc2022_pe_64bit-De
   D:/qt/6.8.0/msvc2022_64/include/QtWidgets/qapplication.h \
   D:/qt/6.8.0/msvc2022_64/include/QtWidgets/qcombobox.h \
   D:/qt/6.8.0/msvc2022_64/include/QtWidgets/qframe.h \
+  D:/qt/6.8.0/msvc2022_64/include/QtWidgets/qlabel.h \
   D:/qt/6.8.0/msvc2022_64/include/QtWidgets/qlistview.h \
   D:/qt/6.8.0/msvc2022_64/include/QtWidgets/qmainwindow.h \
+  D:/qt/6.8.0/msvc2022_64/include/QtWidgets/qprogressbar.h \
   D:/qt/6.8.0/msvc2022_64/include/QtWidgets/qrubberband.h \
   D:/qt/6.8.0/msvc2022_64/include/QtWidgets/qsizepolicy.h \
   D:/qt/6.8.0/msvc2022_64/include/QtWidgets/qslider.h \
@@ -347,6 +359,7 @@ C:/Users/User/Documents/untitled1/build/Desktop_x86_windows_msvc2022_pe_64bit-De
   D:/qt/6.8.0/msvc2022_64/include/QtWidgets/qstyleoption.h \
   D:/qt/6.8.0/msvc2022_64/include/QtWidgets/qtabbar.h \
   D:/qt/6.8.0/msvc2022_64/include/QtWidgets/qtabwidget.h \
+  D:/qt/6.8.0/msvc2022_64/include/QtWidgets/qtextedit.h \
   D:/qt/6.8.0/msvc2022_64/include/QtWidgets/qtwidgets-config.h \
   D:/qt/6.8.0/msvc2022_64/include/QtWidgets/qtwidgetsexports.h \
   D:/qt/6.8.0/msvc2022_64/include/QtWidgets/qtwidgetsglobal.h \

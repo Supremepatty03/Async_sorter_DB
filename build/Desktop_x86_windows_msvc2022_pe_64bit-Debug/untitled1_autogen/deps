@@ -42,16 +42,23 @@ untitled1_autogen/timestamp: \
 	C:/Users/User/Documents/untitled1/build/Desktop_x86_windows_msvc2022_pe_64bit-Debug/CMakeFiles/3.31.0-rc2/CMakeCXXCompiler.cmake \
 	C:/Users/User/Documents/untitled1/build/Desktop_x86_windows_msvc2022_pe_64bit-Debug/CMakeFiles/3.31.0-rc2/CMakeRCCompiler.cmake \
 	C:/Users/User/Documents/untitled1/build/Desktop_x86_windows_msvc2022_pe_64bit-Debug/CMakeFiles/3.31.0-rc2/CMakeSystem.cmake \
+	C:/Users/User/Documents/untitled1/connectionpool.cpp \
+	C:/Users/User/Documents/untitled1/connectionpool.h \
 	C:/Users/User/Documents/untitled1/db_manager.cpp \
 	C:/Users/User/Documents/untitled1/db_manager.h \
+	C:/Users/User/Documents/untitled1/include/sort.hpp \
+	C:/Users/User/Documents/untitled1/include/sort.inl \
 	C:/Users/User/Documents/untitled1/main.cpp \
 	C:/Users/User/Documents/untitled1/mainwindow.cpp \
 	C:/Users/User/Documents/untitled1/mainwindow.h \
 	C:/Users/User/Documents/untitled1/registrationwindow.cpp \
 	C:/Users/User/Documents/untitled1/registrationwindow.h \
+	C:/Users/User/Documents/untitled1/sortworker.cpp \
+	C:/Users/User/Documents/untitled1/sortworker.h \
 	D:/qt/6.8.0/msvc2022_64/include/QtCore/QCoreApplication \
 	D:/qt/6.8.0/msvc2022_64/include/QtCore/QDeadlineTimer \
 	D:/qt/6.8.0/msvc2022_64/include/QtCore/QDebug \
+	D:/qt/6.8.0/msvc2022_64/include/QtCore/QElapsedTimer \
 	D:/qt/6.8.0/msvc2022_64/include/QtCore/QHash \
 	D:/qt/6.8.0/msvc2022_64/include/QtCore/QList \
 	D:/qt/6.8.0/msvc2022_64/include/QtCore/QMap \
@@ -341,12 +348,18 @@ untitled1_autogen/timestamp: \
 	D:/qt/6.8.0/msvc2022_64/include/QtGui/qkeysequence.h \
 	D:/qt/6.8.0/msvc2022_64/include/QtGui/qpaintdevice.h \
 	D:/qt/6.8.0/msvc2022_64/include/QtGui/qpalette.h \
+	D:/qt/6.8.0/msvc2022_64/include/QtGui/qpen.h \
+	D:/qt/6.8.0/msvc2022_64/include/QtGui/qpicture.h \
 	D:/qt/6.8.0/msvc2022_64/include/QtGui/qpixelformat.h \
 	D:/qt/6.8.0/msvc2022_64/include/QtGui/qpixmap.h \
 	D:/qt/6.8.0/msvc2022_64/include/QtGui/qpolygon.h \
 	D:/qt/6.8.0/msvc2022_64/include/QtGui/qregion.h \
 	D:/qt/6.8.0/msvc2022_64/include/QtGui/qrgb.h \
 	D:/qt/6.8.0/msvc2022_64/include/QtGui/qrgba64.h \
+	D:/qt/6.8.0/msvc2022_64/include/QtGui/qtextcursor.h \
+	D:/qt/6.8.0/msvc2022_64/include/QtGui/qtextdocument.h \
+	D:/qt/6.8.0/msvc2022_64/include/QtGui/qtextformat.h \
+	D:/qt/6.8.0/msvc2022_64/include/QtGui/qtextoption.h \
 	D:/qt/6.8.0/msvc2022_64/include/QtGui/qtgui-config.h \
 	D:/qt/6.8.0/msvc2022_64/include/QtGui/qtguiexports.h \
 	D:/qt/6.8.0/msvc2022_64/include/QtGui/qtguiglobal.h \
@@ -376,7 +389,10 @@ untitled1_autogen/timestamp: \
 	D:/qt/6.8.0/msvc2022_64/include/QtSql/qtsqlglobal.h \
 	D:/qt/6.8.0/msvc2022_64/include/QtSql/qtsqlversion.h \
 	D:/qt/6.8.0/msvc2022_64/include/QtWidgets/QApplication \
+	D:/qt/6.8.0/msvc2022_64/include/QtWidgets/QLabel \
 	D:/qt/6.8.0/msvc2022_64/include/QtWidgets/QMainWindow \
+	D:/qt/6.8.0/msvc2022_64/include/QtWidgets/QProgressBar \
+	D:/qt/6.8.0/msvc2022_64/include/QtWidgets/QTextEdit \
 	D:/qt/6.8.0/msvc2022_64/include/QtWidgets/qabstractitemdelegate.h \
 	D:/qt/6.8.0/msvc2022_64/include/QtWidgets/qabstractitemview.h \
 	D:/qt/6.8.0/msvc2022_64/include/QtWidgets/qabstractscrollarea.h \
@@ -385,8 +401,10 @@ untitled1_autogen/timestamp: \
 	D:/qt/6.8.0/msvc2022_64/include/QtWidgets/qapplication.h \
 	D:/qt/6.8.0/msvc2022_64/include/QtWidgets/qcombobox.h \
 	D:/qt/6.8.0/msvc2022_64/include/QtWidgets/qframe.h \
+	D:/qt/6.8.0/msvc2022_64/include/QtWidgets/qlabel.h \
 	D:/qt/6.8.0/msvc2022_64/include/QtWidgets/qlistview.h \
 	D:/qt/6.8.0/msvc2022_64/include/QtWidgets/qmainwindow.h \
+	D:/qt/6.8.0/msvc2022_64/include/QtWidgets/qprogressbar.h \
 	D:/qt/6.8.0/msvc2022_64/include/QtWidgets/qrubberband.h \
 	D:/qt/6.8.0/msvc2022_64/include/QtWidgets/qsizepolicy.h \
 	D:/qt/6.8.0/msvc2022_64/include/QtWidgets/qslider.h \
@@ -395,6 +413,7 @@ untitled1_autogen/timestamp: \
 	D:/qt/6.8.0/msvc2022_64/include/QtWidgets/qstyleoption.h \
 	D:/qt/6.8.0/msvc2022_64/include/QtWidgets/qtabbar.h \
 	D:/qt/6.8.0/msvc2022_64/include/QtWidgets/qtabwidget.h \
+	D:/qt/6.8.0/msvc2022_64/include/QtWidgets/qtextedit.h \
 	D:/qt/6.8.0/msvc2022_64/include/QtWidgets/qtwidgets-config.h \
 	D:/qt/6.8.0/msvc2022_64/include/QtWidgets/qtwidgetsexports.h \
 	D:/qt/6.8.0/msvc2022_64/include/QtWidgets/qtwidgetsglobal.h \

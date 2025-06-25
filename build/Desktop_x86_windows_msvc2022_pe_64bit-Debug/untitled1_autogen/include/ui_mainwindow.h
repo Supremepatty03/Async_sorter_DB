@@ -70,12 +70,12 @@ public:
     QTextEdit *textEdit22;
     QWidget *page_2;
     QPushButton *backButton;
-    QWidget *widget;
+    QWidget *layoutWidget2;
     QVBoxLayout *verticalLayout_21;
     QLabel *testLabel;
     QTextEdit *testDataEdit;
     QWidget *page;
-    QWidget *layoutWidget2;
+    QWidget *layoutWidget3;
     QVBoxLayout *verticalLayout_34;
     QPushButton *testStartButton;
     QHBoxLayout *horizontalLayout_10;
@@ -140,7 +140,7 @@ public:
     QLabel *label_12;
     QLineEdit *state6;
     QLineEdit *time6;
-    QWidget *layoutWidget3;
+    QWidget *layoutWidget4;
     QVBoxLayout *verticalLayout_35;
     QPushButton *clearDatabaseButton;
     QVBoxLayout *verticalLayout_33;
@@ -173,8 +173,8 @@ public:
     QTextEdit *resultEdit1;
     QTextEdit *resultEdit2;
     QPushButton *testViewButton;
-    QWidget *widget1;
-    QWidget *layoutWidget4;
+    QWidget *widget;
+    QWidget *layoutWidget5;
     QVBoxLayout *verticalLayout_2;
     QPushButton *newArrButton;
     QSpacerItem *verticalSpacer;
@@ -478,13 +478,13 @@ public:
 "border-top-color: rgb(255, 255, 255);\n"
 "alternate-background-color: rgb(255, 255, 255);\n"
 "color: rgb(255, 255, 255);"));
-        widget = new QWidget(page_2);
-        widget->setObjectName("widget");
-        widget->setGeometry(QRect(110, 90, 721, 481));
-        verticalLayout_21 = new QVBoxLayout(widget);
+        layoutWidget2 = new QWidget(page_2);
+        layoutWidget2->setObjectName("layoutWidget2");
+        layoutWidget2->setGeometry(QRect(110, 90, 721, 481));
+        verticalLayout_21 = new QVBoxLayout(layoutWidget2);
         verticalLayout_21->setObjectName("verticalLayout_21");
         verticalLayout_21->setContentsMargins(0, 0, 0, 0);
-        testLabel = new QLabel(widget);
+        testLabel = new QLabel(layoutWidget2);
         testLabel->setObjectName("testLabel");
         testLabel->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
 "\n"
@@ -492,7 +492,7 @@ public:
 
         verticalLayout_21->addWidget(testLabel);
 
-        testDataEdit = new QTextEdit(widget);
+        testDataEdit = new QTextEdit(layoutWidget2);
         testDataEdit->setObjectName("testDataEdit");
         testDataEdit->setStyleSheet(QString::fromUtf8("border-color: rgb(81, 81, 81);\n"
 "color: rgb(0, 0, 0);\n"
@@ -504,13 +504,13 @@ public:
         stackedWidget->addWidget(page_2);
         page = new QWidget();
         page->setObjectName("page");
-        layoutWidget2 = new QWidget(page);
-        layoutWidget2->setObjectName("layoutWidget2");
-        layoutWidget2->setGeometry(QRect(40, 60, 697, 418));
-        verticalLayout_34 = new QVBoxLayout(layoutWidget2);
+        layoutWidget3 = new QWidget(page);
+        layoutWidget3->setObjectName("layoutWidget3");
+        layoutWidget3->setGeometry(QRect(40, 60, 697, 418));
+        verticalLayout_34 = new QVBoxLayout(layoutWidget3);
         verticalLayout_34->setObjectName("verticalLayout_34");
         verticalLayout_34->setContentsMargins(0, 0, 0, 0);
-        testStartButton = new QPushButton(layoutWidget2);
+        testStartButton = new QPushButton(layoutWidget3);
         testStartButton->setObjectName("testStartButton");
         testStartButton->setMaximumSize(QSize(250, 16777215));
         testStartButton->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 0, 0);\n"
@@ -528,7 +528,7 @@ public:
         horizontalLayout_4->setObjectName("horizontalLayout_4");
         verticalLayout_7 = new QVBoxLayout();
         verticalLayout_7->setObjectName("verticalLayout_7");
-        label = new QLabel(layoutWidget2);
+        label = new QLabel(layoutWidget3);
         label->setObjectName("label");
         label->setMinimumSize(QSize(0, 35));
         label->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
@@ -538,7 +538,7 @@ public:
 
         verticalLayout_7->addWidget(label);
 
-        progressBar = new QProgressBar(layoutWidget2);
+        progressBar = new QProgressBar(layoutWidget3);
         progressBar->setObjectName("progressBar");
         progressBar->setMinimumSize(QSize(150, 0));
         progressBar->setStyleSheet(QString::fromUtf8("gridline-color: rgb(0, 255, 0);\n"
@@ -559,7 +559,7 @@ public:
 
         verticalLayout_8 = new QVBoxLayout();
         verticalLayout_8->setObjectName("verticalLayout_8");
-        label_2 = new QLabel(layoutWidget2);
+        label_2 = new QLabel(layoutWidget3);
         label_2->setObjectName("label_2");
         label_2->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
 "\n"
@@ -568,7 +568,7 @@ public:
 
         verticalLayout_8->addWidget(label_2);
 
-        state1 = new QLineEdit(layoutWidget2);
+        state1 = new QLineEdit(layoutWidget3);
         state1->setObjectName("state1");
 
         verticalLayout_8->addWidget(state1);
@@ -579,7 +579,7 @@ public:
 
         verticalLayout_13->addLayout(horizontalLayout_4);
 
-        time1 = new QLineEdit(layoutWidget2);
+        time1 = new QLineEdit(layoutWidget3);
         time1->setObjectName("time1");
         time1->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
 "\n"
@@ -596,7 +596,7 @@ public:
         horizontalLayout_5->setObjectName("horizontalLayout_5");
         verticalLayout_9 = new QVBoxLayout();
         verticalLayout_9->setObjectName("verticalLayout_9");
-        label_3 = new QLabel(layoutWidget2);
+        label_3 = new QLabel(layoutWidget3);
         label_3->setObjectName("label_3");
         label_3->setMinimumSize(QSize(0, 35));
         label_3->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
@@ -606,7 +606,7 @@ public:
 
         verticalLayout_9->addWidget(label_3);
 
-        progressBar_2 = new QProgressBar(layoutWidget2);
+        progressBar_2 = new QProgressBar(layoutWidget3);
         progressBar_2->setObjectName("progressBar_2");
         progressBar_2->setMinimumSize(QSize(150, 0));
         progressBar_2->setStyleSheet(QString::fromUtf8("gridline-color: rgb(0, 255, 0);\n"
@@ -627,7 +627,7 @@ public:
 
         verticalLayout_10 = new QVBoxLayout();
         verticalLayout_10->setObjectName("verticalLayout_10");
-        label_4 = new QLabel(layoutWidget2);
+        label_4 = new QLabel(layoutWidget3);
         label_4->setObjectName("label_4");
         label_4->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
 "\n"
@@ -636,7 +636,7 @@ public:
 
         verticalLayout_10->addWidget(label_4);
 
-        state2 = new QLineEdit(layoutWidget2);
+        state2 = new QLineEdit(layoutWidget3);
         state2->setObjectName("state2");
 
         verticalLayout_10->addWidget(state2);
@@ -647,7 +647,7 @@ public:
 
         verticalLayout_13->addLayout(horizontalLayout_5);
 
-        time2 = new QLineEdit(layoutWidget2);
+        time2 = new QLineEdit(layoutWidget3);
         time2->setObjectName("time2");
         time2->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
 "\n"
@@ -664,7 +664,7 @@ public:
         horizontalLayout_6->setObjectName("horizontalLayout_6");
         verticalLayout_11 = new QVBoxLayout();
         verticalLayout_11->setObjectName("verticalLayout_11");
-        label_5 = new QLabel(layoutWidget2);
+        label_5 = new QLabel(layoutWidget3);
         label_5->setObjectName("label_5");
         label_5->setMinimumSize(QSize(0, 35));
         label_5->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
@@ -674,7 +674,7 @@ public:
 
         verticalLayout_11->addWidget(label_5);
 
-        progressBar_3 = new QProgressBar(layoutWidget2);
+        progressBar_3 = new QProgressBar(layoutWidget3);
         progressBar_3->setObjectName("progressBar_3");
         progressBar_3->setMinimumSize(QSize(150, 0));
         progressBar_3->setStyleSheet(QString::fromUtf8("gridline-color: rgb(0, 255, 0);\n"
@@ -695,7 +695,7 @@ public:
 
         verticalLayout_12 = new QVBoxLayout();
         verticalLayout_12->setObjectName("verticalLayout_12");
-        label_6 = new QLabel(layoutWidget2);
+        label_6 = new QLabel(layoutWidget3);
         label_6->setObjectName("label_6");
         label_6->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
 "\n"
@@ -704,7 +704,7 @@ public:
 
         verticalLayout_12->addWidget(label_6);
 
-        state3 = new QLineEdit(layoutWidget2);
+        state3 = new QLineEdit(layoutWidget3);
         state3->setObjectName("state3");
 
         verticalLayout_12->addWidget(state3);
@@ -715,7 +715,7 @@ public:
 
         verticalLayout_13->addLayout(horizontalLayout_6);
 
-        time3 = new QLineEdit(layoutWidget2);
+        time3 = new QLineEdit(layoutWidget3);
         time3->setObjectName("time3");
         time3->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
 "\n"
@@ -737,7 +737,7 @@ public:
         horizontalLayout_7->setObjectName("horizontalLayout_7");
         verticalLayout_15 = new QVBoxLayout();
         verticalLayout_15->setObjectName("verticalLayout_15");
-        label_7 = new QLabel(layoutWidget2);
+        label_7 = new QLabel(layoutWidget3);
         label_7->setObjectName("label_7");
         label_7->setMinimumSize(QSize(195, 35));
         label_7->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
@@ -747,7 +747,7 @@ public:
 
         verticalLayout_15->addWidget(label_7);
 
-        progressBar_4 = new QProgressBar(layoutWidget2);
+        progressBar_4 = new QProgressBar(layoutWidget3);
         progressBar_4->setObjectName("progressBar_4");
         progressBar_4->setMinimumSize(QSize(150, 0));
         progressBar_4->setStyleSheet(QString::fromUtf8("gridline-color: rgb(0, 255, 0);\n"
@@ -768,7 +768,7 @@ public:
 
         verticalLayout_16 = new QVBoxLayout();
         verticalLayout_16->setObjectName("verticalLayout_16");
-        label_8 = new QLabel(layoutWidget2);
+        label_8 = new QLabel(layoutWidget3);
         label_8->setObjectName("label_8");
         label_8->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
 "\n"
@@ -777,7 +777,7 @@ public:
 
         verticalLayout_16->addWidget(label_8);
 
-        state4 = new QLineEdit(layoutWidget2);
+        state4 = new QLineEdit(layoutWidget3);
         state4->setObjectName("state4");
 
         verticalLayout_16->addWidget(state4);
@@ -788,7 +788,7 @@ public:
 
         verticalLayout_14->addLayout(horizontalLayout_7);
 
-        time4 = new QLineEdit(layoutWidget2);
+        time4 = new QLineEdit(layoutWidget3);
         time4->setObjectName("time4");
         time4->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
 "\n"
@@ -805,7 +805,7 @@ public:
         horizontalLayout_8->setObjectName("horizontalLayout_8");
         verticalLayout_17 = new QVBoxLayout();
         verticalLayout_17->setObjectName("verticalLayout_17");
-        label_9 = new QLabel(layoutWidget2);
+        label_9 = new QLabel(layoutWidget3);
         label_9->setObjectName("label_9");
         label_9->setMinimumSize(QSize(195, 35));
         label_9->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
@@ -815,7 +815,7 @@ public:
 
         verticalLayout_17->addWidget(label_9);
 
-        progressBar_5 = new QProgressBar(layoutWidget2);
+        progressBar_5 = new QProgressBar(layoutWidget3);
         progressBar_5->setObjectName("progressBar_5");
         progressBar_5->setMinimumSize(QSize(150, 0));
         progressBar_5->setStyleSheet(QString::fromUtf8("gridline-color: rgb(0, 255, 0);\n"
@@ -836,7 +836,7 @@ public:
 
         verticalLayout_18 = new QVBoxLayout();
         verticalLayout_18->setObjectName("verticalLayout_18");
-        label_10 = new QLabel(layoutWidget2);
+        label_10 = new QLabel(layoutWidget3);
         label_10->setObjectName("label_10");
         label_10->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
 "\n"
@@ -845,7 +845,7 @@ public:
 
         verticalLayout_18->addWidget(label_10);
 
-        state5 = new QLineEdit(layoutWidget2);
+        state5 = new QLineEdit(layoutWidget3);
         state5->setObjectName("state5");
 
         verticalLayout_18->addWidget(state5);
@@ -856,7 +856,7 @@ public:
 
         verticalLayout_14->addLayout(horizontalLayout_8);
 
-        time5 = new QLineEdit(layoutWidget2);
+        time5 = new QLineEdit(layoutWidget3);
         time5->setObjectName("time5");
         time5->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
 "\n"
@@ -873,7 +873,7 @@ public:
         horizontalLayout_9->setObjectName("horizontalLayout_9");
         verticalLayout_19 = new QVBoxLayout();
         verticalLayout_19->setObjectName("verticalLayout_19");
-        label_11 = new QLabel(layoutWidget2);
+        label_11 = new QLabel(layoutWidget3);
         label_11->setObjectName("label_11");
         label_11->setMinimumSize(QSize(195, 35));
         label_11->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
@@ -883,7 +883,7 @@ public:
 
         verticalLayout_19->addWidget(label_11);
 
-        progressBar_6 = new QProgressBar(layoutWidget2);
+        progressBar_6 = new QProgressBar(layoutWidget3);
         progressBar_6->setObjectName("progressBar_6");
         progressBar_6->setMinimumSize(QSize(150, 0));
         progressBar_6->setStyleSheet(QString::fromUtf8("gridline-color: rgb(0, 255, 0);\n"
@@ -904,7 +904,7 @@ public:
 
         verticalLayout_20 = new QVBoxLayout();
         verticalLayout_20->setObjectName("verticalLayout_20");
-        label_12 = new QLabel(layoutWidget2);
+        label_12 = new QLabel(layoutWidget3);
         label_12->setObjectName("label_12");
         label_12->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
 "\n"
@@ -913,7 +913,7 @@ public:
 
         verticalLayout_20->addWidget(label_12);
 
-        state6 = new QLineEdit(layoutWidget2);
+        state6 = new QLineEdit(layoutWidget3);
         state6->setObjectName("state6");
 
         verticalLayout_20->addWidget(state6);
@@ -924,7 +924,7 @@ public:
 
         verticalLayout_14->addLayout(horizontalLayout_9);
 
-        time6 = new QLineEdit(layoutWidget2);
+        time6 = new QLineEdit(layoutWidget3);
         time6->setObjectName("time6");
         time6->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
 "\n"
@@ -939,13 +939,13 @@ public:
 
         verticalLayout_34->addLayout(horizontalLayout_10);
 
-        layoutWidget3 = new QWidget(page);
-        layoutWidget3->setObjectName("layoutWidget3");
-        layoutWidget3->setGeometry(QRect(770, 60, 301, 421));
-        verticalLayout_35 = new QVBoxLayout(layoutWidget3);
+        layoutWidget4 = new QWidget(page);
+        layoutWidget4->setObjectName("layoutWidget4");
+        layoutWidget4->setGeometry(QRect(770, 60, 301, 421));
+        verticalLayout_35 = new QVBoxLayout(layoutWidget4);
         verticalLayout_35->setObjectName("verticalLayout_35");
         verticalLayout_35->setContentsMargins(0, 0, 0, 0);
-        clearDatabaseButton = new QPushButton(layoutWidget3);
+        clearDatabaseButton = new QPushButton(layoutWidget4);
         clearDatabaseButton->setObjectName("clearDatabaseButton");
         clearDatabaseButton->setMaximumSize(QSize(140, 16777215));
         clearDatabaseButton->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 0, 0);\n"
@@ -961,7 +961,7 @@ public:
         horizontalLayout_14->setObjectName("horizontalLayout_14");
         verticalLayout_28 = new QVBoxLayout();
         verticalLayout_28->setObjectName("verticalLayout_28");
-        label_19 = new QLabel(layoutWidget3);
+        label_19 = new QLabel(layoutWidget4);
         label_19->setObjectName("label_19");
         label_19->setMinimumSize(QSize(150, 35));
         label_19->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
@@ -971,7 +971,7 @@ public:
 
         verticalLayout_28->addWidget(label_19);
 
-        time7 = new QLineEdit(layoutWidget3);
+        time7 = new QLineEdit(layoutWidget4);
         time7->setObjectName("time7");
         time7->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
 "\n"
@@ -989,7 +989,7 @@ public:
 
         verticalLayout_27 = new QVBoxLayout();
         verticalLayout_27->setObjectName("verticalLayout_27");
-        label_20 = new QLabel(layoutWidget3);
+        label_20 = new QLabel(layoutWidget4);
         label_20->setObjectName("label_20");
         label_20->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
 "\n"
@@ -998,7 +998,7 @@ public:
 
         verticalLayout_27->addWidget(label_20);
 
-        state7 = new QLineEdit(layoutWidget3);
+        state7 = new QLineEdit(layoutWidget4);
         state7->setObjectName("state7");
         state7->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
 "\n"
@@ -1021,7 +1021,7 @@ public:
         horizontalLayout_15->setObjectName("horizontalLayout_15");
         verticalLayout_29 = new QVBoxLayout();
         verticalLayout_29->setObjectName("verticalLayout_29");
-        label_21 = new QLabel(layoutWidget3);
+        label_21 = new QLabel(layoutWidget4);
         label_21->setObjectName("label_21");
         label_21->setMinimumSize(QSize(150, 35));
         label_21->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
@@ -1031,7 +1031,7 @@ public:
 
         verticalLayout_29->addWidget(label_21);
 
-        time8 = new QLineEdit(layoutWidget3);
+        time8 = new QLineEdit(layoutWidget4);
         time8->setObjectName("time8");
         time8->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
 "\n"
@@ -1049,7 +1049,7 @@ public:
 
         verticalLayout_30 = new QVBoxLayout();
         verticalLayout_30->setObjectName("verticalLayout_30");
-        label_22 = new QLabel(layoutWidget3);
+        label_22 = new QLabel(layoutWidget4);
         label_22->setObjectName("label_22");
         label_22->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
 "\n"
@@ -1058,7 +1058,7 @@ public:
 
         verticalLayout_30->addWidget(label_22);
 
-        state8 = new QLineEdit(layoutWidget3);
+        state8 = new QLineEdit(layoutWidget4);
         state8->setObjectName("state8");
         state8->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
 "\n"
@@ -1081,7 +1081,7 @@ public:
         horizontalLayout_16->setObjectName("horizontalLayout_16");
         verticalLayout_31 = new QVBoxLayout();
         verticalLayout_31->setObjectName("verticalLayout_31");
-        label_23 = new QLabel(layoutWidget3);
+        label_23 = new QLabel(layoutWidget4);
         label_23->setObjectName("label_23");
         label_23->setMinimumSize(QSize(150, 35));
         label_23->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
@@ -1091,7 +1091,7 @@ public:
 
         verticalLayout_31->addWidget(label_23);
 
-        time9 = new QLineEdit(layoutWidget3);
+        time9 = new QLineEdit(layoutWidget4);
         time9->setObjectName("time9");
         time9->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
 "\n"
@@ -1109,7 +1109,7 @@ public:
 
         verticalLayout_32 = new QVBoxLayout();
         verticalLayout_32->setObjectName("verticalLayout_32");
-        label_24 = new QLabel(layoutWidget3);
+        label_24 = new QLabel(layoutWidget4);
         label_24->setObjectName("label_24");
         label_24->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
 "\n"
@@ -1118,7 +1118,7 @@ public:
 
         verticalLayout_32->addWidget(label_24);
 
-        state9 = new QLineEdit(layoutWidget3);
+        state9 = new QLineEdit(layoutWidget4);
         state9->setObjectName("state9");
         state9->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
 "\n"
@@ -1158,16 +1158,16 @@ public:
 "\n"
 "font: 700 11pt \"Calibri\";"));
         stackedWidget->addWidget(page);
-        widget1 = new QWidget(centralwidget);
-        widget1->setObjectName("widget1");
-        widget1->setGeometry(QRect(0, 20, 301, 761));
-        layoutWidget4 = new QWidget(widget1);
-        layoutWidget4->setObjectName("layoutWidget4");
-        layoutWidget4->setGeometry(QRect(30, 260, 241, 201));
-        verticalLayout_2 = new QVBoxLayout(layoutWidget4);
+        widget = new QWidget(centralwidget);
+        widget->setObjectName("widget");
+        widget->setGeometry(QRect(0, 20, 301, 761));
+        layoutWidget5 = new QWidget(widget);
+        layoutWidget5->setObjectName("layoutWidget5");
+        layoutWidget5->setGeometry(QRect(30, 260, 241, 201));
+        verticalLayout_2 = new QVBoxLayout(layoutWidget5);
         verticalLayout_2->setObjectName("verticalLayout_2");
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
-        newArrButton = new QPushButton(layoutWidget4);
+        newArrButton = new QPushButton(layoutWidget5);
         newArrButton->setObjectName("newArrButton");
         newArrButton->setMinimumSize(QSize(0, 44));
         newArrButton->setAutoFillBackground(false);
@@ -1184,7 +1184,7 @@ public:
 
         verticalLayout_2->addItem(verticalSpacer);
 
-        viewButton = new QPushButton(layoutWidget4);
+        viewButton = new QPushButton(layoutWidget5);
         viewButton->setObjectName("viewButton");
         QSizePolicy sizePolicy1(QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Preferred);
         sizePolicy1.setHorizontalStretch(5);
@@ -1206,7 +1206,7 @@ public:
 
         verticalLayout_2->addItem(verticalSpacer_2);
 
-        testButton = new QPushButton(layoutWidget4);
+        testButton = new QPushButton(layoutWidget5);
         testButton->setObjectName("testButton");
         testButton->setMinimumSize(QSize(0, 44));
         testButton->setStyleSheet(QString::fromUtf8("font: 11pt \"Franklin Gothic Demi\";\n"
@@ -1223,7 +1223,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(2);
+        stackedWidget->setCurrentIndex(3);
         newArrButton->setDefault(false);
 
 
