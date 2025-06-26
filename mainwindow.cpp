@@ -109,7 +109,6 @@ MainWindow::MainWindow(const int userID, QWidget *parent)
                 sortedList << QString::fromStdString(str);
             }
 
-            // Объединение в одну строку и вывод в TextEdit
             QString output = sortedList.join(" ");
             ui->sortTextEdit->setPlainText(output);
             ui->saveButton->setVisible(true);

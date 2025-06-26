@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
         "QSQLITE",
         "C:/SQLite/my_database2.db",
         /* poolSize = */ 6,
-        /* connectOptions (не используется для PRAGMA) */ QString()
+        /* connectOptions */ QString()
         );
     QTranslator translator;
     const QStringList uiLanguages = QLocale::system().uiLanguages();

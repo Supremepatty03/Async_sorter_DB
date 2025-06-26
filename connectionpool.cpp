@@ -19,7 +19,7 @@ void ConnectionPool::init(const QString& driver,
     m_connOptions = connOptions;
     m_poolSize    = poolSize;
 
-    // Предварительно создаём соединения
+    // Предварительное созданание соединения
     for (int i = 0; i < poolSize; ++i) {
         QString connName = QString("%1_conn_%2")
         .arg(driver)
@@ -37,7 +37,6 @@ void ConnectionPool::init(const QString& driver,
 
 QSqlDatabase ConnectionPool::acquire() {
     QMutexLocker locker(&m_mutex);
-    // Ждём, пока не освободится соединение
     while (m_freeConnections.isEmpty())
         m_waitCond.wait(&m_mutex);
 
@@ -48,7 +47,6 @@ QSqlDatabase ConnectionPool::acquire() {
 void ConnectionPool::release(const QSqlDatabase& db) {
     QMutexLocker locker(&m_mutex);
     QString name = db.connectionName();
-    // Проверяем, что это наше соединение
     if (!name.isEmpty() && !m_freeConnections.contains(name))
         m_freeConnections.enqueue(name);
     locker.unlock();
@@ -57,7 +55,6 @@ void ConnectionPool::release(const QSqlDatabase& db) {
 
 ConnectionPool::~ConnectionPool() {
     QMutexLocker locker(&m_mutex);
-    // Закрываем и удаляем все соединения
     for (int i = 0; i < m_poolSize; ++i) {
         QString connName = m_freeConnections.dequeue();
         QSqlDatabase db = QSqlDatabase::database(connName);

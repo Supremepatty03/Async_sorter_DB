@@ -2,9 +2,6 @@
 #include <QCryptographicHash>
 #include <QRandomGenerator>
 
-//QSqlDatabase db_manager::db;
-//bool db_manager::connectionInitialized = false;
-
 db_manager::db_manager() {
     dbPath = "C:/SQLite/my_database2.db";
 }
@@ -15,7 +12,6 @@ QSqlDatabase& db_manager::databaseForThisThread() {
         QString connName = QString("db_%1")
         .arg((quintptr)QThread::currentThreadId());
 
-        // создаём локальное соединение
         QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE", connName);
         db.setDatabaseName(dbPath);
         if (!db.open()) {
@@ -26,7 +22,6 @@ QSqlDatabase& db_manager::databaseForThisThread() {
             db.exec("PRAGMA journal_mode = DELETE;");
             db.exec("PRAGMA busy_timeout = 3000;");
         }
-        // В threadLocalDb хранится копия QSqlDatabase
         threadLocalDb.setLocalData(db);
     }
     return threadLocalDb.localData();
@@ -38,7 +33,6 @@ db_manager& db_manager::getInstance() {
 }
 void db_manager::closeDatabase() {
     if (threadLocalDb.hasLocalData()) {
-        // Закрываем и удаляем соединение в этом потоке
         QSqlDatabase& db = threadLocalDb.localData();
         QString connName = db.connectionName();
         db.close();
@@ -250,13 +244,13 @@ std::vector<std::string> db_manager::default_data() {
             char random_char;
 
             if (random_char_type == 0) {
-                random_char = rand() % 10 + '0'; // Numbers
+                random_char = rand() % 10 + '0'; // 0-9
             } else if (random_char_type == 1) {
-                random_char = rand() % 26 + 'A'; // Uppercase
+                random_char = rand() % 26 + 'A'; // A-Z
             } else if (random_char_type == 2) {
-                random_char = rand() % 26 + 'a'; // Lowercase
+                random_char = rand() % 26 + 'a'; // a-z
             } else {
-                random_char = rand() % 15 + 33;  // Special characters
+                random_char = rand() % 15 + 33;  // спец символы
             }
             tmp += random_char;
         }
@@ -268,7 +262,6 @@ std::vector<std::string> db_manager::default_data() {
 bool db_manager::clearDatabase(int recordCount) {
     QSqlDatabase& db = databaseForThisThread();
     QSqlQuery query(db);
-    // пример для тестового user_id=2, лучше параметризовать
     QString deleteQuery = QString(
                               "DELETE FROM user_arrays "
                               "WHERE array_id IN ( "
@@ -287,7 +280,7 @@ bool db_manager::clearDatabase(int recordCount) {
 }
 
 int db_manager::getRandomArrayId(int user_id) {
-    // 1. Найти минимальный и максимальный ID
+    // Найти минимальный и максимальный ID
     QSqlDatabase& db = databaseForThisThread();
     QSqlQuery query(db);
     QString queryString = QString(
@@ -297,35 +290,35 @@ int db_manager::getRandomArrayId(int user_id) {
 
     if (!query.exec(queryString)) {
         qDebug() << "Ошибка получения диапазона ID:" << query.lastError().text();
-        return -1; // Ошибка
+        return -1;
     }
 
     if (!query.next()) {
         qDebug() << "Таблица user_arrays пуста!";
-        return -1; // Пустая таблица
+        return -1;
     }
 
     int minId = query.value("min_id").toInt();
     int maxId = query.value("max_id").toInt();
 
-    // 2. Генерация случайного числа в диапазоне
+    // Генерация случайного числа
     int randomId = QRandomGenerator::global()->bounded(minId, maxId + 1);
 
-    // 3. Проверить существование ID (необязательно, если IDs непрерывны)
+    // Проверка ID
     QSqlQuery checkQuery(db);
     checkQuery.prepare("SELECT COUNT(*) FROM user_arrays WHERE array_id = :random_id");
     checkQuery.bindValue(":random_id", randomId);
 
     if (!checkQuery.exec()) {
         qDebug() << "Ошибка проверки существования ID:" << checkQuery.lastError().text();
-        return -1; // Ошибка
+        return -1;
     }
 
     if (checkQuery.next() && checkQuery.value(0).toInt() > 0) {
-        return randomId; // Возвращаем случайный существующий ID
+        return randomId;
     } else {
         qDebug() << "Случайный ID не существует в таблице, попробуйте снова.";
-        return getRandomArrayId(user_id); // Рекурсия для поиска нового случайного ID
+        return getRandomArrayId(user_id);
     }
 }
 

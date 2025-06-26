@@ -59,7 +59,7 @@ void registrationwindow::performSecondAction() {
             userID = ID_result.toString().toInt(&ok);
             this->close();
             mainWindow = new MainWindow(userID);
-            mainWindow->showMaximized();      // Закрываем текущее окно
+            mainWindow->showMaximized();
             break;
         case 1:
             ui->errorLabel->setVisible(true);
